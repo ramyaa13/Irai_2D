@@ -14,5 +14,7 @@ public class DialogueTrigger : MonoBehaviour
         if (!DialogueSystem.Instance) return;
         DialogueSystem.Instance.Play(node);
         fired = true;
+
+        Debug.Log($"Triggered dialogue: player entered");
     }
 }

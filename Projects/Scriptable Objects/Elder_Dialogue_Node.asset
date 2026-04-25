@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0afd7c2df802a24b88f0f5a1f34ef43, type: 3}
+  m_Name: Elder_Dialogue_Node
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  nodeId: elder_opening
+  lines:
+  - speaker: Old Man
+    text: You broke our laws. Leave with your shame.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Irai
+    text: I did not break them. They broke me.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Old Man
+    text: Then walk, and take your curse with you.
+    voice: {fileID: 0}
+    extraDelay: 0
+  choices:
+  - label: Bow your head.
+    responseText: She bowed and kept her silence.
+    karmaDelta: 10
+    courageDelta: -20
+    fearDelta: 10
+    scoreDelta: -25
+    minCourageRequired: 0
+  - label: Stare back.
+    responseText: Her eyes did not drop.
+    karmaDelta: -10
+    courageDelta: 30
+    fearDelta: 10
+    scoreDelta: 100
+    minCourageRequired: 0
+  nextIfNoChoice: {fileID: 0}

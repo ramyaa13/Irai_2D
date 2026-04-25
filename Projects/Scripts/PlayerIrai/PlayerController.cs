@@ -36,8 +36,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (GameManager.Instance && GameManager.Instance.IsPaused) return;
         if (stats && stats.IsDead) { rb.linearVelocity = Vector2.zero; return; }
+
+
+        if (dialogueLock)                        // <-- add these 4 lines
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            anim?.UpdateLocomotion(0, true, 0);
+            return;
+        }
 
         input = PlayerInput.HorizontalAxis;
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundMask);
@@ -65,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dialogueLock) { rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); return; }
         float vx = input * moveSpeed * speedMultiplier + externalForceX;
         rb.linearVelocity = new Vector2(vx, rb.linearVelocity.y);
     }
@@ -81,4 +91,21 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
+
+    bool dialogueLock = false;
+
+    void OnEnable()
+    {
+        GameEvents.OnDialogueStart += OnDialogueStart;
+        GameEvents.OnDialogueEnd += OnDialogueEnd;
+    }
+
+    void OnDisable()
+    {
+        GameEvents.OnDialogueStart -= OnDialogueStart;
+        GameEvents.OnDialogueEnd -= OnDialogueEnd;
+    }
+
+    void OnDialogueStart(DialogueNode _) { dialogueLock = true; }
+    void OnDialogueEnd() { dialogueLock = false; }
 }
