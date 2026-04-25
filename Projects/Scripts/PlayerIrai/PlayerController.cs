@@ -74,7 +74,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogueLock) { rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); return; }
+        if (dialogueLock) 
+        { 
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            return; 
+        }
         float vx = input * moveSpeed * speedMultiplier + externalForceX;
         rb.linearVelocity = new Vector2(vx, rb.linearVelocity.y);
     }

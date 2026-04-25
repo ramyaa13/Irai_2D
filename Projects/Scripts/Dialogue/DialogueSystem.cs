@@ -51,10 +51,25 @@ public class DialogueSystem : MonoBehaviour
 
     void ApplyChoice(ChoiceOption c)
     {
-        if (!playerStats) return;
-        playerStats.AddCourage(c.courageDelta);
-        playerStats.AddFear(c.fearDelta);
-        if (c.karmaDelta != 0) GameManager.Instance.karma = Mathf.Clamp(GameManager.Instance.karma + c.karmaDelta, -100, 100);
-        if (c.scoreDelta != 0) GameEvents.RaiseScoreDelta(c.scoreDelta);
+        if (playerStats)
+        {
+            playerStats.AddCourage(c.courageDelta);
+            playerStats.AddFear(c.fearDelta);
+        }
+        if (c.karmaDelta != 0 && GameManager.Instance != null)
+            GameManager.Instance.karma = Mathf.Clamp(GameManager.Instance.karma + c.karmaDelta, -100, 100);
+        if (c.scoreDelta != 0)
+            GameEvents.RaiseScoreDelta(c.scoreDelta);
+
+        // Generic dispatch by choice id prefix
+        if (!string.IsNullOrEmpty(c.choiceId))
+        {
+            if (c.choiceId.StartsWith("guard_"))
+            {
+                string outcome = c.choiceId.Substring("guard_".Length); // "pass" / "fight" / "ignore"
+                GameEvents.RaiseGuardOutcome(outcome);
+            }
+            // Future: extend with veil_, elder_, etc.
+        }
     }
 }

@@ -28,6 +28,8 @@ public static class GameEvents
     public static event Action<string> OnVeilWhisper;
     public static event Action<float> OnVeilProximity;    // 0..1
 
+    public static event Action<string> OnGuardOutcome;       // "pass", "fight", "ignore"
+    public static void RaiseGuardOutcome(string s) => OnGuardOutcome?.Invoke(s);
     public static void RaiseHealth(float c, float m) => OnHealthChanged?.Invoke(c, m);
     public static void RaiseStamina(float c, float m) => OnStaminaChanged?.Invoke(c, m);
     public static void RaiseHunger(float c, float m) => OnHungerChanged?.Invoke(c, m);
@@ -55,5 +57,6 @@ public static class GameEvents
         OnDialogueStart = null; OnDialogueEnd = null; OnChoiceMade = null;
         OnCheckpointReached = null; OnScoreDelta = null; OnSceneCompleted = null;
         OnCollectiblePickup = null; OnVeilWhisper = null; OnVeilProximity = null;
+        OnGuardOutcome = null;
     }
 }
