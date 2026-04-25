@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (stats && stats.IsDead) { rb.linearVelocity = Vector2.zero; return; }
 
 
-        if (dialogueLock)                        // <-- add these 4 lines
+        if (dialogueLock || LullabyMiniGame.IsActive)                        // <-- add these 4 lines
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             anim?.UpdateLocomotion(0, true, 0);

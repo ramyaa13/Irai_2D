@@ -75,43 +75,29 @@ public class GuardAI : MonoBehaviour
     void UpdatePatrol()
     {
         if (!pointA || !pointB) return;
+        // ... existing patrol code ...
 
-        Vector2 p = transform.position;
-        p = Vector2.MoveTowards(p, patrolTarget, speed * Time.deltaTime);
-        transform.position = p;
+        if (state == State.Pacified) return;
 
-        if (Vector2.Distance(p, patrolTarget) < 0.1f)
-        {
-            patrolTarget = Vector2.Distance(patrolTarget, (Vector2)pointA.position) < 0.1f
-                ? (Vector2)pointB.position
-                : (Vector2)pointA.position;
-        }
-
-        FaceTowards(patrolTarget.x);
-
-        if (state == State.Pacified) return;   // pacified guards ignore detection
-
-        // Detection check
         var hit = visionOrigin
             ? Physics2D.OverlapCircle(visionOrigin.position, visionRange, playerMask)
             : null;
+
         if (hit)
         {
+            Debug.Log($"[Guard] Saw {hit.name}, distance = {Vector2.Distance(transform.position, hit.transform.position):F2}");
             player = hit.transform;
             cachedPlayerStats = hit.GetComponent<PlayerStats>();
-
-            // If close enough to confront, switch to dialogue. Otherwise just track.
             if (Vector2.Distance(transform.position, player.position) < visionRange)
                 EnterConfront();
         }
     }
 
-    // -------- CONFRONT --------
     void EnterConfront()
     {
+        Debug.Log($"[Guard] EnterConfront. dialogueFired={dialogueFired}, oneShot={oneShotDialogue}, hasNode={confrontNode != null}, hasSystem={DialogueSystem.Instance != null}");
         if (oneShotDialogue && dialogueFired) { EnterHostile(); return; }
         if (!confrontNode || DialogueSystem.Instance == null) { EnterHostile(); return; }
-
         state = State.Confront;
         dialogueFired = true;
         DialogueSystem.Instance.Play(confrontNode);
