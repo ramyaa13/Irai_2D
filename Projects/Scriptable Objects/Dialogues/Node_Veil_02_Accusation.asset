@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0afd7c2df802a24b88f0f5a1f34ef43, type: 3}
+  m_Name: Node_Veil_02_Accusation
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  nodeId: Node_Veil_02_Accusation
+  lines:
+  - speaker: Veil
+    text: Look at him. Sleeping. Trusting.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: He does not yet know what you are.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: A woman who left. A woman who broke.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: A woman they were right to cast out.
+    voice: {fileID: 0}
+    extraDelay: 0
+  choices:
+  - choiceId: veil_defy
+    label: You wear her face. You are not her.
+    responseText: You wear her face. You are not her.
+    karmaDelta: 0
+    courageDelta: 20
+    fearDelta: -10
+    scoreDelta: 50
+    minCourageRequired: 30
+    requiredItemId: 
+  - choiceId: veil_listen
+    label: ..Speak. I will hear you out
+    responseText: ..Speak. I will hear you out
+    karmaDelta: 5
+    courageDelta: 0
+    fearDelta: 10
+    scoreDelta: 25
+    minCourageRequired: 0
+    requiredItemId: 
+  - choiceId: veil_bow
+    label: They were right.
+    responseText: They were right.
+    karmaDelta: -10
+    courageDelta: -25
+    fearDelta: 25
+    scoreDelta: -25
+    minCourageRequired: 0
+    requiredItemId: 
+  nextIfNoChoice: {fileID: 0}

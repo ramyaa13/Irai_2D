@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0afd7c2df802a24b88f0f5a1f34ef43, type: 3}
+  m_Name: Node_Veil_03b_Memory_Listen
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  nodeId: 
+  lines:
+  - speaker: Veil
+    text: Then listen, daughter.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: "The night they came for him \u2014 what did you feel?"
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Irai
+    text: Cold.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: And what did you carry under that cold?
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Irai
+    text: Hate.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: There. I am that. I am what you were too tired to say.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: Do not pretend I am a stranger.
+    voice: {fileID: 0}
+    extraDelay: 0
+  choices: []
+  nextIfNoChoice: {fileID: 11400000, guid: f85e443ae1c80aa41adcc5164ea9d1a7, type: 2}

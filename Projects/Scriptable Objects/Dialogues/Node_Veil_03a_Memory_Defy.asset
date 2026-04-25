@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0afd7c2df802a24b88f0f5a1f34ef43, type: 3}
+  m_Name: Node_Veil_03a_Memory_Defy
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  nodeId: 
+  lines:
+  - speaker: Veil
+    text: Brave. Or stupid. We will see.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: Do you remember the night they came
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: Three of them. The fire was low. He was three days old.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Irai
+    text: I remember.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: And you ran. With nothing. Toward nothing.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Irai
+    text: Toward something. He is something.
+    voice: {fileID: 0}
+    extraDelay: 0
+  - speaker: Veil
+    text: He is a chain.
+    voice: {fileID: 0}
+    extraDelay: 0
+  choices: []
+  nextIfNoChoice: {fileID: 11400000, guid: f85e443ae1c80aa41adcc5164ea9d1a7, type: 2}
