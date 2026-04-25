@@ -8,9 +8,9 @@ public class PlayerAnimator : MonoBehaviour
 
     public void UpdateLocomotion(float speed01, bool grounded, float velY)
     {
-        anim.SetFloat("Speed", speed01);
-        anim.SetBool("Grounded", grounded);
-        anim.SetFloat("VelY", velY);
+        //anim.SetFloat("Speed", speed01);
+        //anim.SetBool("Grounded", grounded);
+        //anim.SetFloat("VelY", velY);
     }
     public void PlayJump() => anim.SetTrigger("Jump");
     public void PlayHurt() => anim.SetTrigger("Hurt");
